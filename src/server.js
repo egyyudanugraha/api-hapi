@@ -16,6 +16,15 @@ const Hapi = require('@hapi/hapi');
         });
       },
     },
+    {
+      method: 'GET',
+      path: '/about',
+      handler: (req, h) => {
+        return h.response({
+          message: `This page about ${req.query.name ?? 'world'}!`,
+        });
+      },
+    },
   ]);
 
   await server.start();
